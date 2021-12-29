@@ -1,0 +1,41 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: TusdToken
+    network: mainnet
+    source:
+      address: "0xffc40F39806F1400d8278BfD33823705b5a4c196"
+      abi: TusdToken
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - Blacklisted
+        - Burn
+        - Mint
+        - OwnershipTransferred
+        - SetBurnBounds
+        - Transfer
+      abis:
+        - name: TusdToken
+          file: ./abis/TusdToken.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Blacklisted(indexed address,bool)
+          handler: handleBlacklisted
+        - event: Burn(indexed address,uint256)
+          handler: handleBurn
+        - event: Mint(indexed address,uint256)
+          handler: handleMint
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: SetBurnBounds(uint256,uint256)
+          handler: handleSetBurnBounds
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/mapping.ts

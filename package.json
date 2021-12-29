@@ -1,0 +1,16 @@
+{
+  "name": "tusdtokentransfers",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ tusdtokentransfers",
+    "create-local": "graph create --node http://localhost:8020/ tusdtokentransfers",
+    "remove-local": "graph remove --node http://localhost:8020/ tusdtokentransfers",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 tusdtokentransfers"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.24.1",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}
