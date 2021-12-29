@@ -1,6 +1,7 @@
-type ExampleEntity @entity {
+type TransferEvent @entity {
   id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  spender: Bytes! # address
+  value: BigInt!
+  from: Bytes! # address
+  to: Bytes! # address
+  blockNumber: BigInt!
 }
